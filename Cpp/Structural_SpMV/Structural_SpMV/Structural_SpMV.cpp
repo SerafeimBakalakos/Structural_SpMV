@@ -4,16 +4,17 @@
 #include "stdafx.h"
 #include <iostream>
 
-void BuildAndPrint();
+void buildAndPrint();
+void testSlicing();
 void ReadMatrix();
 
 int main()
 {
-	//BuildAndPrint();
-	ReadMatrix();
-	
+	//testSlicing();
+    ReadMatrix();
+    
 
-	std::cout << "\n\nPress any key to exit: ";
+    std::cout << "\n\nPress any key to exit: ";
     char a;
     std::cin >> a;
     return 0;

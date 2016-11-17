@@ -11,11 +11,16 @@ private:
 	const int _order;
 	std::vector<std::map<int, double>> _rows;
 
+	std::vector<int> oldToNewIndices(std::vector<int>& rowsToKeep);
+
 public:
-	DOK(const int order);
+	DOK(int order);
 	void add(int row, int col, double value);
 	int getOrder();
 	double get(int row, int col);
+	int nonZeroCount();
+	void printDiagonal();
+	DOK slice(std::vector<int>& rowsToKeep);
 
 	friend std::ostream& operator<<(std::ostream& out, const DOK& matrix);
 };
