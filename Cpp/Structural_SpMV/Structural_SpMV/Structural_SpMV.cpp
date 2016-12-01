@@ -6,13 +6,18 @@
 
 void buildAndPrint();
 void testSlicing();
+void testConversionToCSR();
 void ReadMatrix();
+void CSRspMVTest();
+void runBenchmark();
 
 int main()
 {
 	//testSlicing();
-    ReadMatrix();
-    
+    //ReadMatrix();
+	//CSRspMVTest();
+	//testConversionToCSR();
+	runBenchmark();
 
     std::cout << "\n\nPress any key to exit: ";
     char a;

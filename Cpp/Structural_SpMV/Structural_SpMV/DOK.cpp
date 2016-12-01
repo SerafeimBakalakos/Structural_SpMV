@@ -5,6 +5,35 @@
 #include <set>
 
 
+//void print(double* array, int length)
+//{
+//	std::cout << "[ ";
+//	for (int i = 0; i < length; ++i)
+//	{
+//		std::cout << array[i] << ' ';
+//	}
+//	std::cout << "]\n";
+//}
+//
+//void print(int* array, int length)
+//{
+//	std::cout << "[ ";
+//	for (int i = 0; i < length; ++i)
+//	{
+//		std::cout << array[i] << ' ';
+//	}
+//	std::cout << "]\n";
+//}
+//
+//void print(int order, int nnz, double* values, int* indices, int* ptrs)
+//{
+//	std::cout << "Values = ";
+//	print(values, nnz);
+//	std::cout << "Column indices = ";
+//	print(indices, nnz);
+//	std::cout << "Row pointers = ";
+//	print(ptrs, order + 1);
+//}
 
 std::vector<int> DOK::oldToNewIndices(std::vector<int>& rowsToKeep)
 {
@@ -92,6 +121,30 @@ DOK DOK::slice(std::vector<int>& rowsToKeep)
 		}
 	}
 	return newDOK;
+}
+
+CSR* DOK::toCSR()
+{
+	int nnz = nonZeroCount();
+	double* values = new double[nnz];
+	int* columnIndices = new int[nnz];
+	int* rowPointers = new int[_order + 1];
+	rowPointers[_order] = nnz;
+
+	int counter = 0;
+	for (int row = 0; row < _order; ++row)
+	{
+		rowPointers[row] = counter;
+		for (auto colValPair : _rows[row])
+		{
+			values[counter] = colValPair.second;
+			columnIndices[counter] = colValPair.first;
+			++counter;
+		}
+	}
+
+	//print(_order, nnz, values, columnIndices, rowPointers);
+	return new CSR(_order, nnz, values, columnIndices, rowPointers);
 }
 
 // Operators

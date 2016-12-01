@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "DOK.hpp"
 #include <iostream>
+#include "CSR.hpp"
 
 void buildAndPrint()
 {
@@ -44,4 +45,12 @@ void testSlicing()
 
 	DOK sliced4 = matrix.slice(std::vector<int>{0, 1, 2, 3, 4});
 	cout << "\n Keep all:\n" << sliced4;
+}
+
+void testConversionToCSR()
+{
+	DOK dok = buildMatrix();
+	std::cout << "DOK: \n" << dok << "\n";
+	CSR* csr = dok.toCSR();
+	std::cout << "CSR: \n" << csr << "\n";
 }

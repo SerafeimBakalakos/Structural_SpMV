@@ -34,6 +34,15 @@
     <Filter Include="tests\Readers">
       <UniqueIdentifier>{be27d5ff-d98c-4ff4-be20-7a7b67944c7d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Benchmarks">
+      <UniqueIdentifier>{4fdd7f39-1918-4380-abb6-b70b21dab87b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Benchmarks">
+      <UniqueIdentifier>{e2f4adad-e0aa-41c5-8605-df9518cf1bf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests\Benchmarks">
+      <UniqueIdentifier>{09b91d6d-8145-4712-b74d-ba99105d195c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -50,6 +59,12 @@
     </ClInclude>
     <ClInclude Include="AbaqusReader.hpp">
       <Filter>include\Readers</Filter>
+    </ClInclude>
+    <ClInclude Include="CSR.hpp">
+      <Filter>include\Matrices</Filter>
+    </ClInclude>
+    <ClInclude Include="Benchmark.hpp">
+      <Filter>include\Benchmarks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +85,18 @@
     </ClCompile>
     <ClCompile Include="DOKTest.cpp">
       <Filter>tests\Matrices</Filter>
+    </ClCompile>
+    <ClCompile Include="CSR.cpp">
+      <Filter>src\Matrices</Filter>
+    </ClCompile>
+    <ClCompile Include="CSRTests.cpp">
+      <Filter>tests\Matrices</Filter>
+    </ClCompile>
+    <ClCompile Include="Benchmark.cpp">
+      <Filter>src\Benchmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="BenchmarkTest.cpp">
+      <Filter>tests\Benchmarks</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

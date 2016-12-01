@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include <vector>
 #include <map>
+#include "CSR.hpp"
 
 class DOK
 {
@@ -21,6 +22,7 @@ public:
 	int nonZeroCount();
 	void printDiagonal();
 	DOK slice(std::vector<int>& rowsToKeep);
+	CSR* toCSR();
 
 	friend std::ostream& operator<<(std::ostream& out, const DOK& matrix);
 };

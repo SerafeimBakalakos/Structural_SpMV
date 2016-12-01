@@ -146,6 +146,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbaqusReader.hpp" />
+    <ClInclude Include="Benchmark.hpp" />
+    <ClInclude Include="CSR.hpp" />
     <ClInclude Include="DOK.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -153,6 +155,10 @@
   <ItemGroup>
     <ClCompile Include="AbaqusReader.cpp" />
     <ClCompile Include="AbaqusReaderTest.cpp" />
+    <ClCompile Include="Benchmark.cpp" />
+    <ClCompile Include="BenchmarkTest.cpp" />
+    <ClCompile Include="CSR.cpp" />
+    <ClCompile Include="CSRTests.cpp" />
     <ClCompile Include="DOK.cpp" />
     <ClCompile Include="DOKTest.cpp" />
     <ClCompile Include="stdafx.cpp">
