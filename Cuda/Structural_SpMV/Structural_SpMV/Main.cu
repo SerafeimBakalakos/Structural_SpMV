@@ -1,29 +1,23 @@
 #include <iostream>
 
 int testKernel();
-void cusparseTest();
-void buildAndPrint();
-void testSlicing();
-void testConversionToCSR();
-void ReadMatrix();
-void CSRspMVTest();
-void runBenchmark();
-
-namespace CusparseCSRTests
-{
-	void printMatrix();
-}
+namespace DOKTests { void buildAndPrint(); void testSlicing(); void testConversionToCSR(); }
+namespace CSRTests { void spMVTest(); }
+namespace CusparseCSRTests { void cusparseTest(); void printMatrix(); }
+namespace AbaqusReaderTests { void ReadMatrix(); }
+namespace BenchmarkTests { void runBenchmark(); }
 
 int main()
 {
 	//testKernel();
-	//cusparseTest();
-	//testSlicing();
-	//ReadMatrix();
-	//CSRspMVTest();
-	//testConversionToCSR();
-	//runBenchmark();
+	//DOKTests::testSlicing();
+	//DOKTests::testConversionToCSR();
+	//CSRTests::spMVTest();
+	//CusparseCSRTests:cusparseTest();
 	CusparseCSRTests::printMatrix();
+	//AbaqusReaderTests::ReadMatrix();
+	//BenchmarkTests::runBenchmark();
+	
 
 	std::cout << "\n\nPress any key to exit: ";
 	char a;

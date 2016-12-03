@@ -37,17 +37,17 @@
     <ClCompile Include="CSRTests.cpp">
       <Filter>tests</Filter>
     </ClCompile>
-    <ClCompile Include="DOKTest.cpp">
-      <Filter>tests</Filter>
-    </ClCompile>
-    <ClCompile Include="AbaqusReaderTest.cpp">
-      <Filter>tests</Filter>
-    </ClCompile>
-    <ClCompile Include="BenchmarkTest.cpp">
-      <Filter>tests</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="AbaqusReaderTests.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="BenchmarkTests.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="DOKTests.cpp">
+      <Filter>tests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

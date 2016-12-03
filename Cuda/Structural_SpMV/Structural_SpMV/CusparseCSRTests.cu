@@ -1,4 +1,5 @@
 #include <iostream>
+#include "cusparse_v2.h"
 #include "CusparseCSR.cuh"
 
 namespace CusparseCSRTests
@@ -44,5 +45,13 @@ namespace CusparseCSRTests
 		double* y = new double[6];
 		matrix.spMV(x, y);
 		checkResult(y);
+	}
+
+	void cusparseTest()
+	{
+		std::cout << "Starting cusparse...\n";
+		cusparseHandle_t handle;
+		cusparseCreate(&handle);
+		std::cout << "Ending cusparse...\n";
 	}
 };

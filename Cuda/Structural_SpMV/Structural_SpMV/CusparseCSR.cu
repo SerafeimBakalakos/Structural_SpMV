@@ -5,15 +5,6 @@
 #include "CusparseCSR.cuh"
 #include "CSR.hpp"
 
-void cusparseTest()
-{
-	std::cout << "Starting cusparse...\n";
-	cusparseHandle_t handle;
-	cusparseCreate(&handle);
-	std::cout << "Ending cusparse...\n";
-}
-
-
 CusparseCSR::CusparseCSR(int order, int nnz, double* values, int* columnIndexes, int* rowPointers):
 	h_order(order), h_nnz(nnz), d_values(nullptr), d_columnIndices(nullptr), d_rowPointers(nullptr)
 {

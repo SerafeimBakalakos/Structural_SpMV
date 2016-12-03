@@ -158,13 +158,13 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbaqusReader.cpp" />
-    <ClCompile Include="AbaqusReaderTest.cpp" />
+    <ClCompile Include="AbaqusReaderTests.cpp" />
     <ClCompile Include="Benchmark.cpp" />
-    <ClCompile Include="BenchmarkTest.cpp" />
+    <ClCompile Include="BenchmarkTests.cpp" />
     <ClCompile Include="CSR.cpp" />
     <ClCompile Include="CSRTests.cpp" />
     <ClCompile Include="DOK.cpp" />
-    <ClCompile Include="DOKTest.cpp" />
+    <ClCompile Include="DOKTests.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
