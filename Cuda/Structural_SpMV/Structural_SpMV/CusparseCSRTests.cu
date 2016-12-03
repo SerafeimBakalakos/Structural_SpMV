@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cuda_runtime_api.h>
 #include "cusparse_v2.h"
 #include "CusparseCSR.cuh"
 
@@ -20,7 +21,7 @@ namespace CusparseCSRTests
 		std::cout << matrix;
 	}
 
-	void checkResult(double* result)
+	void checkSpMVResult(double* result)
 	{
 		int order = 6;
 		double expected[]{ 12, -57, 98, 145, -63, 8 };
@@ -38,13 +39,58 @@ namespace CusparseCSRTests
 		else std::cout << "Error in SpMV!\n";
 	}
 
-	void CSRspMVTest()
+	void checkTransposeSpMVResult(double* result)
 	{
+		int order = 6;
+		double expected[]{ 38, 6, 128, 148, 53, 55 };
+		double tolerance = 1e-6;
+		bool isCorrect = true;
+		for (int i = 0; i < order; ++i)
+		{
+			if (abs(result[i] / expected[i] - 1.0) > tolerance)
+			{
+				isCorrect = false;
+				break;
+			}
+		}
+		if (isCorrect) std::cout << "TransposeSpMV was correct.\n";
+		else std::cout << "Error in TransposeSpMV!\n";
+	}
+
+	void spMVTest()
+	{
+		cudaError_t err;
+		int order = 6;
+		size_t size = order * sizeof(double);
+
+		double* hX = new double[order]{ 2, -3, 7, 9, 4, -12 };
+		double* hY = new double[order];
+		double* hZ = new double[order];
+		double* dX;
+		err = cudaMalloc((void**)&dX, size);
+		err = cudaMemcpy(dX, hX, size, cudaMemcpyHostToDevice);
+		double* dY;
+		err = cudaMalloc((void**)&dY, size);
+		double* dZ;
+		err = cudaMalloc((void**)&dZ, size);
+		
 		CusparseCSR matrix = buildMatrix();
-		double* x = new double[6]{ 2, -3, 7, 9, 4, -12 };
-		double* y = new double[6];
-		matrix.spMV(x, y);
-		checkResult(y);
+		cusparseHandle_t handle;
+		cusparseCreate(&handle);
+
+		matrix.spMV(handle, dX, dY);
+		err = cudaMemcpy(hY, dY, size, cudaMemcpyDeviceToHost);
+		checkSpMVResult(hY);
+		matrix.spMV_T(handle, dX, dZ);
+		err = cudaMemcpy(hZ, dZ, size, cudaMemcpyDeviceToHost);
+		checkTransposeSpMVResult(hZ);
+
+		delete[] hX;
+		delete[] hY;
+		delete[] hZ;
+		err = cudaFree(dX);
+		err = cudaFree(dY);
+		err = cudaFree(dZ);
 	}
 
 	void cusparseTest()

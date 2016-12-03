@@ -13,7 +13,7 @@ namespace CSRTests
 		return CSR(order, nnz, values, colIndexes, rowPointers);
 	}
 
-	void checkResult(double* result)
+	void checkSpMVResult(double* result)
 	{
 		int order = 6;
 		double expected[]{ 12, -57, 98, 145, -63, 8 };
@@ -31,12 +31,36 @@ namespace CSRTests
 		else std::cout << "Error in SpMV!\n";
 	}
 
+	void checkTransposeSpMVResult(double* result)
+	{
+		int order = 6;
+		double expected[]{ 38, 6, 128, 148, 53, 55 };
+		double tolerance = 1e-6;
+		bool isCorrect = true;
+		for (int i = 0; i < order; ++i)
+		{
+			if (abs(result[i] / expected[i] - 1.0) > tolerance)
+			{
+				isCorrect = false;
+				break;
+			}
+		}
+		if (isCorrect) std::cout << "TransposeSpMV was correct.\n";
+		else std::cout << "Error in TransposeSpMV!\n";
+	}
+
 	void spMVTest()
 	{
 		CSR matrix = buildMatrix();
 		double* x = new double[6]{ 2, -3, 7, 9, 4, -12 };
 		double* y = new double[6];
+		double* z = new double[6];
 		matrix.spMV(x, y);
-		checkResult(y);
+		checkSpMVResult(y);
+		matrix.spMV_T(x, z);
+		checkTransposeSpMVResult(z);
+		delete[] x;
+		delete[] y;
+		delete[] z;
 	}
 }
