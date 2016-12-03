@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="kernel.cu" />
+    <CudaCompile Include="Main.cu" />
+    <CudaCompile Include="CusparseCSR.cu">
+      <Filter>src</Filter>
+    </CudaCompile>
+    <CudaCompile Include="CusparseCSRTests.cu">
+      <Filter>tests</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{2404e29b-30de-4b84-b581-7d66c2daabc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{f1910fa6-9d64-443f-a27d-9eeb12513916}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests">
+      <UniqueIdentifier>{386fe429-7e89-45b3-8c91-b96e0aee2619}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AbaqusReader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Benchmark.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="CSR.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="DOK.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="CSRTests.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="DOKTest.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="AbaqusReaderTest.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="BenchmarkTest.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbaqusReader.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Benchmark.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="CSR.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="DOK.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="CusparseCSR.cuh">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
