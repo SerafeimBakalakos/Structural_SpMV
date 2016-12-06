@@ -49,6 +49,12 @@
     <ClCompile Include="DOKTests.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="ELL.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="ELLTests.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbaqusReader.hpp">
@@ -70,6 +76,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="CusparseCSR.cuh">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="ELL.hpp">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

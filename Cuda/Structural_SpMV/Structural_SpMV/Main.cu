@@ -3,8 +3,8 @@
 int testKernel();
 namespace DOKTests { void buildAndPrint(); void testSlicing(); void testConversionToCSR(); }
 namespace CSRTests { void spMVTest(); }
-namespace CusparseCSRTests {
-	void cusparseTest(); void printMatrix(); void spMVTest(); }
+namespace ELLTests { void buildAndPrintMatrix(); void spMVTest(); }
+namespace CusparseCSRTests { void cusparseTest(); void printMatrix(); void spMVTest(); }
 namespace AbaqusReaderTests { void ReadMatrix(); }
 namespace BenchmarkTests { void runBenchmark(); }
 
@@ -14,8 +14,10 @@ int main()
 	//DOKTests::testSlicing();
 	//DOKTests::testConversionToCSR();
 	//CSRTests::spMVTest();
+	//ELLTests::buildAndPrintMatrix();
+	ELLTests::spMVTest();
 	//CusparseCSRTests:cusparseTest();
-	CusparseCSRTests::spMVTest();
+	//CusparseCSRTests::spMVTest();
 	//AbaqusReaderTests::ReadMatrix();
 	//BenchmarkTests::runBenchmark();
 	

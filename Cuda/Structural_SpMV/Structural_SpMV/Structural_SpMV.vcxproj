@@ -165,6 +165,8 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClCompile Include="CSRTests.cpp" />
     <ClCompile Include="DOK.cpp" />
     <ClCompile Include="DOKTests.cpp" />
+    <ClCompile Include="ELL.cpp" />
+    <ClCompile Include="ELLTests.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +175,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="CSR.hpp" />
     <ClInclude Include="CusparseCSR.cuh" />
     <ClInclude Include="DOK.hpp" />
+    <ClInclude Include="ELL.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

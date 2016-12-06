@@ -27,4 +27,4 @@ public:
 	friend std::ostream& operator<<(std::ostream& out, const CSR* matrix);
 };
 
-#endif // !CSR_H
+#endif

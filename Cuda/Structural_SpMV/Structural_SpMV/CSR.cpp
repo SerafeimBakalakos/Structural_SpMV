@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "CSR.hpp"
 #include <string>
+#include "CSR.hpp"
 
 int CSR::indexOf(int row, int col) const
 {
