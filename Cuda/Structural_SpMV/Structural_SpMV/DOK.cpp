@@ -48,6 +48,16 @@ std::vector<int> DOK::oldToNewIndices(std::vector<int>& rowsToKeep)
 	return indexMap;
 }
 
+int DOK::maxNonZerosPerRow()
+{
+	int max = 0;
+	for (auto row : _rows)
+	{
+		if (row.size() > max) max = row.size();
+	}
+	return max;
+}
+
 DOK::DOK(int order) : _order(order), _rows(order)
 {
 }
@@ -147,7 +157,32 @@ CSR* DOK::toCSR()
 	return new CSR(_order, nnz, values, columnIndices, rowPointers);
 }
 
-CusparseCSR DOK::toCusparseCSR()
+ELL* DOK::toELL()
+{
+	int nnz = nonZeroCount();
+	int ellColumnsCount = maxNonZerosPerRow();
+	int entriesCount = _order * ellColumnsCount;
+
+	// Zero initialization. 0 is also used as a padding value.
+	double* values = new double[entriesCount]();
+	int* columnIndices = new int[entriesCount]();
+
+	for (int row = 0; row < _order; ++row)
+	{
+		int ellCol = 0;
+		for (auto colValPair : _rows[row])
+		{
+			int index = ellCol * _order + row;
+			values[index] = colValPair.second;
+			columnIndices[index] = colValPair.first;
+			++ellCol;
+		}
+	}
+
+	return new ELL(_order, nnz, entriesCount-nnz, values, columnIndices);
+}
+
+CusparseCSR* DOK::toCusparseCSR()
 {
 	int nnz = nonZeroCount();
 	double* values = new double[nnz];
@@ -167,7 +202,7 @@ CusparseCSR DOK::toCusparseCSR()
 		}
 	}
 
-	return CusparseCSR(_order, nnz, values, columnIndices, rowPointers);
+	return new CusparseCSR(_order, nnz, values, columnIndices, rowPointers);
 }
 
 // Operators

@@ -1,7 +1,7 @@
 #include <iostream>
 
 int testKernel();
-namespace DOKTests { void buildAndPrint(); void testSlicing(); void testConversionToCSR(); }
+namespace DOKTests { void buildAndPrint(); void testSlicing(); void testConversionToCSR(); void testConversionToELL(); }
 namespace CSRTests { void spMVTest(); }
 namespace ELLTests { void buildAndPrintMatrix(); void spMVTest(); }
 namespace CusparseCSRTests { void cusparseTest(); void printMatrix(); void spMVTest(); }
@@ -13,9 +13,10 @@ int main()
 	//testKernel();
 	//DOKTests::testSlicing();
 	//DOKTests::testConversionToCSR();
+	DOKTests::testConversionToELL();
 	//CSRTests::spMVTest();
 	//ELLTests::buildAndPrintMatrix();
-	ELLTests::spMVTest();
+	//ELLTests::spMVTest();
 	//CusparseCSRTests:cusparseTest();
 	//CusparseCSRTests::spMVTest();
 	//AbaqusReaderTests::ReadMatrix();

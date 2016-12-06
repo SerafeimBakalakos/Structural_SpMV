@@ -56,4 +56,12 @@ namespace DOKTests
 		CSR* csr = dok.toCSR();
 		std::cout << "CSR: \n" << csr << "\n";
 	}
+
+	void testConversionToELL()
+	{
+		DOK dok = buildMatrix();
+		std::cout << "DOK: \n" << dok << "\n";
+		ELL* ell = dok.toELL();
+		std::cout << "ELL: \n" << ell << "\n";
+	}
 }

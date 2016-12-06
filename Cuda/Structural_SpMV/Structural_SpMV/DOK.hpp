@@ -5,6 +5,7 @@
 #include <vector>
 #include <map>
 #include "CSR.hpp"
+#include "ELL.hpp"
 #include "CusparseCSR.cuh"
 
 class DOK
@@ -14,6 +15,7 @@ private:
 	std::vector<std::map<int, double>> _rows;
 
 	std::vector<int> oldToNewIndices(std::vector<int>& rowsToKeep);
+	int maxNonZerosPerRow();
 
 public:
 	DOK(int order);
@@ -24,7 +26,8 @@ public:
 	void printDiagonal();
 	DOK slice(std::vector<int>& rowsToKeep);
 	CSR* toCSR();
-	CusparseCSR toCusparseCSR();
+	ELL* toELL();
+	CusparseCSR* toCusparseCSR();
 
 	friend std::ostream& operator<<(std::ostream& out, const DOK& matrix);
 };
